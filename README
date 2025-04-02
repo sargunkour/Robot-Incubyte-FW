@@ -1,0 +1,82 @@
+# Robot Framework Test Automation - README
+
+## 📌 Project Overview
+This project uses **Robot Framework** for automating web testing. It integrates with **SeleniumLibrary** for web UI testing.
+
+## 📂 Directory Structure
+```
+Robot-Incubyte-FW/
+│-- TestCases/                  # Contains Robot Framework test scripts
+│-- ZResults/                   # Stores test execution results and logs
+│-- requirements.txt             # Dependencies for Robot Framework
+│-- all.bat                # Batch file to execute test cases
+```
+
+## 🚀 Setup Instructions
+### 1️⃣ Install Python 3.7
+Download and install Python 3.7.0 from the following link:
+🔗 [Python 3.7.0](https://www.python.org/ftp/python/3.7.0/python-3.7.0-amd64.exe)
+
+### 2️⃣ Install Dependencies
+Ensure **Python** and **pip** are installed, then install the required packages:
+```sh
+pip install -U -r requirements.txt
+```
+To uninstall dependencies:
+```sh
+pip uninstall -r requirements.txt -y
+```
+
+### 3️⃣ Running the Tests
+Execute the test suite using the batch file:
+```sh
+cd C:\Robot-Incubyte-FW\TestCases
+C:\Python\python.exe -m robot --outputdir C:\ZResults\ All_test1.robot
+```
+Alternatively, run manually:
+```sh
+robot --outputdir C:\ZResults\Test_Results TestCases/All_test1.robot
+```
+
+## 📝 Requirements.txt
+```
+attrs==25.1.0
+certifi==2025.1.31
+cffi==1.17.1
+click==8.1.8
+colorama==0.4.6
+h11==0.14.0
+idna==3.10
+outcome==1.3.0.post0
+pycparser==2.22
+PySocks==1.7.1
+robotframework==7.2.2
+robotframework-pythonlibcore==4.4.1
+robotframework-seleniumlibrary==6.7.0
+selenium==4.28.1
+sniffio==1.3.1
+sortedcontainers==2.4.0
+trio==0.28.0
+trio-websocket==0.11.1
+typing_extensions==4.12.2
+urllib3==2.3.0
+websocket-client==1.8.0
+wsproto==1.2.0
+```
+
+## 📊 Test Reports
+After execution, test results are stored in `C:\ZResults\`. Open `log.html` for detailed reports.
+
+## 🔧 Troubleshooting
+- **Missing dependencies?** Run `pip install -U -r requirements.txt`.
+- **Python not recognized?** Ensure Python is added to the system `PATH`.
+- **Robot Framework not found?** Run `pip show robotframework` to verify installation.
+
+## 📌 Additional Notes
+- The test cases use `SeleniumLibrary` for UI testing.
+- Ensure the web application are running before execution.
+- The project is structured for CI/CD integration, making it compatible with Jenkins/GitHub Actions.
+
+---
+💡 For improvements or issues, feel free to contribute or raise a query!
+
