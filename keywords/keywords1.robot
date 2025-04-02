@@ -7,6 +7,7 @@ Library     SeleniumLibrary
 ${BROWSER}    chrome
 ${URL}    https://magento.softwaretestingboard.com/
 ${Create_An_Account}    //*[contains(@class,'panel header')]/descendant::*[text()="Create an Account"]
+${SignIN_To_Account}    //*[contains(@class,'panel header')]/descendant::*[@class="authorization-link"]/a
 ${First_Name}    //*[contains(@id,'firstname')]
 ${Last_Name}    //*[contains(@id,'lastname')]
 ${Email}    //*[contains(@id,'email_address')]
@@ -14,6 +15,9 @@ ${Password}    //*[contains(@class, 'field required')]/following-sibling::*[@cla
 ${Confirm_Password}    //*[contains(@class, 'field required')]/following-sibling::*[@class="field confirmation required"]/descendant::*[contains(@title, 'Password')]
 ${Create_An_Account_Button}    //*[contains(@class,'action submit primary')]/span
 ${Welcome_Sargun}    //*[contains(@class,'panel header')]/descendant::*[text()="Welcome, Sargun Kour!"]
+${SignIn_Button}    //*[contains(@class,'action login primary')]/span
+${SignIn_Email}    //*[contains(@name,'login[username]')]
+${SignIn_Pswd}    //*[contains(@name,'login[password]')]
 
 
 *** Keywords ***
@@ -44,3 +48,10 @@ Create An Account On Luma
     Input Text Custom    ${Password}    ${Pswd}
     Input Text Custom    ${Confirm_Password}    ${C_Pswd}
     Click Element Custom    ${Create_An_Account_Button}
+
+Sign In To Luma
+    [Arguments]    ${Mail}    ${Pswd}
+    Click Element Custom    ${SignIN_To_Account}
+    Input Text Custom    ${SignIn_Email}    ${Mail}
+    Input Text Custom    ${SignIn_Pswd}    ${Pswd}
+    Click Element Custom    ${SignIn_Button}
