@@ -7,6 +7,13 @@ Library     SeleniumLibrary
 ${BROWSER}    chrome
 ${URL}    https://magento.softwaretestingboard.com/
 ${Create_An_Account}    //*[contains(@class,'panel header')]/descendant::*[text()="Create an Account"]
+${First_Name}    //*[contains(@id,'firstname')]
+${Last_Name}    //*[contains(@id,'lastname')]
+${Email}    //*[contains(@id,'email_address')]
+${Password}    //*[contains(@class, 'field required')]/following-sibling::*[@class="field password required"]/descendant::*[contains(@title, 'Password')]
+${Confirm_Password}    //*[contains(@class, 'field required')]/following-sibling::*[@class="field confirmation required"]/descendant::*[contains(@title, 'Password')]
+${Create_An_Account_Button}    //*[contains(@class,'action submit primary')]/span
+${Welcome_Sargun}    //*[contains(@class,'panel header')]/descendant::*[text()="Welcome, Sargun Kour!"]
 
 
 *** Keywords ***
@@ -29,4 +36,11 @@ Open Browser Custom
     Maximize Browser Window
 
 Create An Account On Luma
+    [Arguments]    ${F_Name}    ${L_Name}    ${Mail}    ${Pswd}    ${C_Pswd}
     Click Element Custom    ${Create_An_Account}
+    Input Text Custom    ${First_Name}    ${F_Name}
+    Input Text Custom    ${Last_Name}    ${L_Name}
+    Input Text Custom    ${Email}    ${Mail}
+    Input Text Custom    ${Password}    ${Pswd}
+    Input Text Custom    ${Confirm_Password}    ${C_Pswd}
+    Click Element Custom    ${Create_An_Account_Button}
